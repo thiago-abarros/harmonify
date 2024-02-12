@@ -9,5 +9,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideAnimationsAsync(), BrowserModule, BrowserAnimationsModule, MatTableModule, MatSortModule]
+  providers: [
+    provideRouter(routes),
+    provideAnimationsAsync(),
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatSortModule,
+  ],
 };

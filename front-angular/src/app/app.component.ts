@@ -9,9 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [RouterOutlet, MatToolbarModule, MatIconModule, MatButtonModule]
+  imports: [RouterOutlet, MatToolbarModule, MatIconModule, MatButtonModule],
 })
-
 export class AppComponent {
   title = 'Harmonify';
 }

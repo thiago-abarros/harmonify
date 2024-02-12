@@ -4,10 +4,6 @@ import { MusicasRoutingModule } from './musicas-routing.module';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    MusicasRoutingModule,
-  ]
+  imports: [CommonModule, MusicasRoutingModule],
 })
-
-export class MusicasModule { }
+export class MusicasModule {}
