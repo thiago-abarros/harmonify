@@ -1,0 +1,12 @@
+[
+  {"id_musica": "1", "nome": "Numb", "artista": "Linkin Park", "generoMusical": "rock"},
+  {"id_musica": "2", "nome": "7 rings", "artista": "Ariana Grande", "generoMusical": "Eletrônica"},
+  {"id_musica": "3", "nome": "Bohemian Rhapsody", "artista": "Queen", "generoMusical": "Rock"},
+  {"id_musica": "4", "nome": "Shape of You", "artista": "Ed Sheeran", "generoMusical": "Pop"},
+  {"id_musica": "5", "nome": "Smells Like Teen Spirit", "artista": "Nirvana", "generoMusical": "Grunge"},
+  {"id_musica": "6", "nome": "Rolling in the Deep", "artista": "Adele", "generoMusical": "Soul"},
+  {"id_musica": "7", "nome": "Sweet Child o\" Mine", "artista": "Guns N\" Roses", "generoMusical": "Hard Rock"},
+  {"id_musica": "8", "nome": "Billie Jean", "artista": "Michael Jackson", "generoMusical": "Pop"},
+  {"id_musica": "9", "nome": "Hotel California", "artista": "Eagles", "generoMusical": "Rock"},
+  {"id_musica": "10"," nome": "Stairway to Heaven", "artista": "Led Zeppelin", "generoMusical": "Rock"}
+]
