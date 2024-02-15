@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MusicasRoutingModule } from './musicas-routing.module';
 import { MusicasComponent } from './musicas/musicas.component';
 import { AppMaterialModule } from '../compartilhado/app-material/app-material.module';
+import { CompartilhadoModule } from '../compartilhado/compartilhado.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { AppMaterialModule } from '../compartilhado/app-material/app-material.mo
   imports: [
     CommonModule,
     MusicasRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
+    CompartilhadoModule
   ]
 })
 export class MusicasModule { }
