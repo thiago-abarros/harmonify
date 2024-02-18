@@ -22,7 +22,9 @@
         <!-- Coluna Gênero Musical -->
         <ng-container matColumnDef="generoMusical">
           <th mat-header-cell *matHeaderCellDef>Gênero musical</th>
-          <td mat-cell *matCellDef="let musica">{{ musica.generoMusical }}</td>
+          <td mat-cell *matCellDef="let musica">{{ musica.generoMusical }}
+            <mat-icon aria-hidden="false" aria-label="Gênero da Música">{{ musica.generoMusical | categoria }}</mat-icon>
+          </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="colunasMostradas"></tr>
