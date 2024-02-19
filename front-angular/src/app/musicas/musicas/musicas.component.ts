@@ -4,6 +4,7 @@ import { MusicasService } from '../servicos/musicas.servico';
 import { Observable, catchError, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogoErroComponent } from '../../compartilhado/componentes/dialogo-erro/dialogo-erro.component';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-musicas',
@@ -17,14 +18,16 @@ export class MusicasComponent {
 
   constructor(
     private musicasServico: MusicasService,
-    public dialogo: MatDialog
+    public dialogo: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
     ) {
     this.fonteDados$ = this.musicasServico.listarMusicas().pipe(
       catchError( error => {
         this.emErro('Erro ao carregar músicas.');
         return of([])
       }));
-    this.colunasMostradas = ['nome', 'artista', 'generoMusical'];
+    this.colunasMostradas = ['foto', 'nome', 'artista', 'generoMusical', 'duracao', 'data_lancamento'];
     }
 
     emErro(mensagemErro: string) {
@@ -32,4 +35,9 @@ export class MusicasComponent {
         data: mensagemErro
       });
     }
+
+    onAdicionar() {
+      this.router.navigate(['adicionar'], {relativeTo: this.route});
+    }
+
 }
