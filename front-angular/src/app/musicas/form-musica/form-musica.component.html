@@ -1,1 +1,58 @@
-<p>Futuro form de música</p>
+<form [formGroup]="form">
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Cadastrar música</mat-card-title>
+    </mat-card-header>
+
+    <br>
+
+    <mat-card-content>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Nome da música</mat-label>
+          <input matInput formControlName="nome">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Artista</mat-label>
+          <input matInput formControlName="artista">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Gênero Musical</mat-label>
+          <mat-select formControlName="generoMusical">
+            <mat-option value="option">Country</mat-option>
+            <mat-option value="option">Dance</mat-option>
+            <mat-option value="option">Eletrônica</mat-option>
+            <mat-option value="option">Forró</mat-option>
+            <mat-option value="option">Hip Hop</mat-option>
+            <mat-option value="option">Instrumental</mat-option>
+            <mat-option value="option">Jazz</mat-option>
+            <mat-option value="option">Pop</mat-option>
+            <mat-option value="option">Rock</mat-option>
+            <mat-option value="option">R&B</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Duração</mat-label>
+          <input matInput formControlName="duracao">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Data de lancamento</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="lancamento">
+          <mat-hint>DD/MM/AAAA</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onSalvar">Salvar</button>
+      <button mat-button (click)="onCancelar">Cancelar</button>
+    </mat-card-actions>
+
+  </mat-card>
+
+</form>

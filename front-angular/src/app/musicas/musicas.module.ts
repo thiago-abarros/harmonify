@@ -6,6 +6,7 @@ import { MusicasComponent } from './musicas/musicas.component';
 import { AppMaterialModule } from '../compartilhado/app-material/app-material.module';
 import { CompartilhadoModule } from '../compartilhado/compartilhado.module';
 import { FormMusicaComponent } from './form-musica/form-musica.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormMusicaComponent } from './form-musica/form-musica.component';
     CommonModule,
     MusicasRoutingModule,
     AppMaterialModule,
-    CompartilhadoModule
+    CompartilhadoModule,
+    ReactiveFormsModule
   ]
 })
 export class MusicasModule { }
