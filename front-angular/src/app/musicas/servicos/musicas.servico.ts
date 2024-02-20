@@ -9,6 +9,7 @@ import { Observable, delay, first, tap } from 'rxjs';
 export class MusicasService {
 
   private readonly API = '../../../assets/musicas.json';
+  private readonly API_SPRING = 'localhost:8080/api/musicas';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -20,4 +21,10 @@ export class MusicasService {
         tap(musicas => console.log(musicas))
       );
   }
+
+  salvarMusica(musica: Musica) {
+    console.log(musica);
+    return this.httpClient.post<Musica>(this.API_SPRING + '/salvar', musica);
+  }
+
 }
