@@ -9,7 +9,7 @@ import { Observable, delay, first, tap } from 'rxjs';
 export class MusicasService {
 
   private readonly API = '../../../assets/musicas.json';
-  private readonly API_SPRING = 'localhost:8080/api/musicas';
+  private readonly API_SPRING = 'api/musicas';
 
   constructor(private httpClient: HttpClient) { }
 
