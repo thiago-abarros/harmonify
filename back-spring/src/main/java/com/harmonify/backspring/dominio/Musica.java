@@ -1,4 +1,4 @@
-package com.harmonify.backspring.modelo;
+package com.harmonify.backspring.dominio;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,5 +34,5 @@ public class Musica {
   @Column(name = "data_de_lancamento", nullable = false)
   private Date lancamento;
 
-  private String foto;
+  private byte[] foto;
 }
