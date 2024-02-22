@@ -19,10 +19,10 @@ public class Musica {
   @Column(name = "id_musica")
   private Long id;
 
-  @Column(length = 20, nullable = false)
+  @Column(length = 50, nullable = false)
   private String nome;
 
-  @Column(length = 20, nullable = false)
+  @Column(length = 50, nullable = false)
   private String artista;
 
   @Column(length = 20, nullable = false)
