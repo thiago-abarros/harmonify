@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "musicas")
+@Table(name = "Musica")
 public class Musica {
 
   @Id
@@ -30,7 +30,7 @@ public class Musica {
   @Column(length = 20, nullable = false)
   private String genero;
 
-  @Column(nullable = false)
+  @Column(name = "duracao_segundos", nullable = false)
   private int duracaoSegundos;
 
   @Column(name = "data_de_lancamento", nullable = false)
