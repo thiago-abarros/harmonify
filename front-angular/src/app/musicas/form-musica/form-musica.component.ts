@@ -33,15 +33,28 @@ export class FormMusicaComponent {
 
   }
 
-  onArquivoSelecionado(event: any){
+  onArquivoSelecionado(event: any) {
     const arquivoSelecionado = event.target.files[0];
 
-    this.form.patchValue({
-      arquivo: arquivoSelecionado
-    });
+    if (arquivoSelecionado) {
+      const reader = new FileReader();
 
-    this.nomeArquivoSelecionado = arquivoSelecionado ? arquivoSelecionado.name : null;
+      reader.onload = (e) => {
+        if (e.target) {
+          const fileContentArrayBuffer = e.target.result as ArrayBuffer;
 
+          const byteArray = new Uint8Array(fileContentArrayBuffer);
+
+          this.form.patchValue({
+            arquivo: Array.from(byteArray),
+          });
+
+          this.nomeArquivoSelecionado = arquivoSelecionado.name;
+        }
+      };
+
+      reader.readAsArrayBuffer(arquivoSelecionado);
+    }
   }
 
 }
