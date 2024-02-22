@@ -35,4 +35,14 @@ public class Musica {
   private Date lancamento;
 
   private byte[] foto;
+
+  public Musica(String nome, String artista, String genero, int duracaoSegundos, Date lancamento,
+      byte[] foto) {
+    this.nome = nome;
+    this.artista = artista;
+    this.genero = genero;
+    this.duracaoSegundos = duracaoSegundos;
+    this.lancamento = lancamento;
+    this.foto = foto;
+  }
 }

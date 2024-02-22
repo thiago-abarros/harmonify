@@ -32,13 +32,7 @@ public class MusicaServico {
   }
 
   public void salvarMusica(MusicaDTO musicaDTO) {
-    Musica musica = new Musica();
-    musica.setNome(musicaDTO.getNome());
-    musica.setArtista(musicaDTO.getArtista());
-    musica.setGenero(musicaDTO.getGeneroMusical());
-    musica.setDuracaoSegundos(validarDuracao(musicaDTO.getDuracao()));
-    musica.setLancamento(musicaDTO.getLancamento());
-    musica.setFoto(musicaDTO.getArquivo());
+    Musica musica = new Musica(musicaDTO.getNome(), musicaDTO.getArtista(), musicaDTO.getGeneroMusical(), validarDuracao(musicaDTO.getDuracao()), musicaDTO.getLancamento(), musicaDTO.getArquivo());
     musicaRepositorio.save(musica);
   }
 
