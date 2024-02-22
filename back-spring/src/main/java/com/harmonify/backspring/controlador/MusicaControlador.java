@@ -18,13 +18,13 @@ public class MusicaControlador {
   @Autowired
   MusicaServico musicaServico;
 
-  @GetMapping
-  public List<Musica> listarMusicas() {
-    return null;
+  @GetMapping("/listar")
+  public List<MusicaDTO> listarMusicas() {
+    return musicaServico.listarMusicas();
   }
 
   @PostMapping("/salvar")
   public void salvarMusica(@RequestBody MusicaDTO musicaDTO) {
-    musicaServico.salvar(musicaDTO);
+    musicaServico.salvarMusica(musicaDTO);
   }
 }
