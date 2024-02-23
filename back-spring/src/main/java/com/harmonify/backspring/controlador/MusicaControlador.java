@@ -1,6 +1,5 @@
 package com.harmonify.backspring.controlador;
 
-import com.harmonify.backspring.dominio.Musica;
 import com.harmonify.backspring.dominio.dto.MusicaDTO;
 import com.harmonify.backspring.servico.MusicaServico;
 import java.util.List;

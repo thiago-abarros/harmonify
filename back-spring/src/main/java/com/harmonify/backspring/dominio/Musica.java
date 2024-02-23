@@ -1,12 +1,13 @@
 package com.harmonify.backspring.dominio;
 
+import com.harmonify.backspring.dominio.dto.MusicaDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.util.Date;
+import java.sql.Date;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -30,21 +31,20 @@ public class Musica {
   @Column(length = 20, nullable = false)
   private String genero;
 
-  @Column(name = "duracao_segundos", nullable = false)
-  private int duracaoSegundos;
+  @Column(name = "duracao_segundos", length = 5, nullable = false)
+  private String duracaoSegundos;
 
   @Column(name = "data_de_lancamento", nullable = false)
   private Date lancamento;
 
   private byte[] foto;
 
-  public Musica(String nome, String artista, String genero, int duracaoSegundos, Date lancamento,
-      byte[] foto) {
-    this.nome = nome;
-    this.artista = artista;
-    this.genero = genero;
-    this.duracaoSegundos = duracaoSegundos;
-    this.lancamento = lancamento;
-    this.foto = foto;
+  public Musica(MusicaDTO musicaDTO) {
+    this.nome = musicaDTO.getNome();
+    this.artista = musicaDTO.getArtista();
+    this.genero = musicaDTO.getGeneroMusical();
+    this.duracaoSegundos = musicaDTO.getDuracao();
+    this.lancamento = musicaDTO.getLancamento();
+    this.foto = musicaDTO.getArquivo();
   }
 }
