@@ -3,35 +3,41 @@ package com.harmonify.backspring.servico;
 import com.harmonify.backspring.dominio.Musica;
 import com.harmonify.backspring.dominio.dto.MusicaDTO;
 import com.harmonify.backspring.dominio.dto.RespostaDTO;
+import com.harmonify.backspring.dominio.enums.GENERO_MUSICAL;
 import com.harmonify.backspring.repositorio.MusicaRepositorio;
-import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
-
-import org.apache.tomcat.util.codec.binary.Base64;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MusicaServico {
 
-  @Autowired
-  MusicaRepositorio musicaRepositorio;
+  private static final EnumSet<GENERO_MUSICAL> GENEROS_MUSICAIS_VALIDOS = EnumSet.allOf(
+      GENERO_MUSICAL.class);
+  private final MusicaRepositorio musicaRepositorio;
+
+  public MusicaServico(MusicaRepositorio musicaRepositorio) {
+    this.musicaRepositorio = musicaRepositorio;
+  }
 
   public List<RespostaDTO> listarMusicas() {
-    List<RespostaDTO> response = new ArrayList<>();
     List<Musica> musicas = musicaRepositorio.findAll();
 
-    for (Musica musica : musicas) {
-      String foto = Base64.encodeBase64String(musica.getFoto());
-      RespostaDTO envelope = new RespostaDTO(musica.getNome(), musica.getArtista(), musica.getGenero(), musica.getDuracaoSegundos(), musica.getLancamento(), foto);
-      response.add(envelope);
-    }
-
-    return response;
+    return musicas.stream()
+        .map(RespostaDTO::new)
+        .toList();
   }
 
   public void salvarMusica(MusicaDTO musicaDTO) {
-    Musica musica = new Musica(musicaDTO);
-    musicaRepositorio.save(musica);
+    if (Boolean.TRUE.equals(validarMusica(musicaDTO))) {
+      Musica musica = new Musica(musicaDTO);
+      musicaRepositorio.save(musica);
+    }
+  }
+
+  public Boolean validarMusica(MusicaDTO musicaDTO) {
+
+    return GENEROS_MUSICAIS_VALIDOS.stream()
+        .anyMatch(generoMusical -> generoMusical.getValor().equals(musicaDTO.generoMusical()));
   }
 }
