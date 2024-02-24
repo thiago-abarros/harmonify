@@ -1,20 +1,14 @@
 package com.harmonify.backspring.dominio.dto;
 
+import com.harmonify.backspring.dominio.Musica;
 import java.sql.Date;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.apache.tomcat.util.codec.binary.Base64;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-public class RespostaDTO {
+public record RespostaDTO(String nome, String artista, String generoMusical, String duracao,
+                          Date dataLancamento, String foto) {
 
-    private String nome;
-    private String artista;
-    private String generoMusical;
-    private String duracao;
-    private Date dataLancamento;
-    private String foto;
-
+  public RespostaDTO(Musica musica) {
+    this(musica.getNome(), musica.getArtista(), musica.getGenero(), musica.getDuracaoSegundos(),
+        musica.getLancamento(), Base64.encodeBase64String(musica.getFoto()));
+  }
 }
