@@ -8,12 +8,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.sql.Date;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Getter
 @Table(name = "Musica")
 public class Musica {
 
@@ -40,11 +42,11 @@ public class Musica {
   private byte[] foto;
 
   public Musica(MusicaDTO musicaDTO) {
-    this.nome = musicaDTO.getNome();
-    this.artista = musicaDTO.getArtista();
-    this.genero = musicaDTO.getGeneroMusical();
-    this.duracaoSegundos = musicaDTO.getDuracao();
-    this.lancamento = musicaDTO.getDataLancamento();
-    this.foto = musicaDTO.getFoto();
+    this.nome = musicaDTO.nome();
+    this.artista = musicaDTO.artista();
+    this.genero = musicaDTO.generoMusical();
+    this.duracaoSegundos = musicaDTO.duracao();
+    this.lancamento = musicaDTO.lancamento();
+    this.foto = musicaDTO.arquivo();
   }
 }
