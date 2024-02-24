@@ -1,6 +1,7 @@
 package com.harmonify.backspring.controlador;
 
 import com.harmonify.backspring.dominio.dto.MusicaDTO;
+import com.harmonify.backspring.dominio.dto.RespostaDTO;
 import com.harmonify.backspring.servico.MusicaServico;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,12 @@ public class MusicaControlador {
   @Autowired
   MusicaServico musicaServico;
 
-  @GetMapping("/listar")
-  public List<MusicaDTO> listarMusicas() {
+  @GetMapping
+  public List<RespostaDTO> listarMusicas() {
     return musicaServico.listarMusicas();
   }
 
-  @PostMapping("/salvar")
+  @PostMapping
   public void salvarMusica(@RequestBody MusicaDTO musicaDTO) {
     musicaServico.salvarMusica(musicaDTO);
   }

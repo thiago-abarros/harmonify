@@ -14,7 +14,7 @@ export class MusicasService {
   constructor(private httpClient: HttpClient) { }
 
   listarMusicas() : Observable<Musica[]> {
-    return this.httpClient.get<Musica[]>(this.API)
+    return this.httpClient.get<Musica[]>(this.API_SPRING)
       .pipe(
         first(),
         delay(2000),

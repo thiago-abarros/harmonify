@@ -44,7 +44,7 @@ public class Musica {
     this.artista = musicaDTO.getArtista();
     this.genero = musicaDTO.getGeneroMusical();
     this.duracaoSegundos = musicaDTO.getDuracao();
-    this.lancamento = musicaDTO.getLancamento();
-    this.foto = musicaDTO.getArquivo();
+    this.lancamento = musicaDTO.getDataLancamento();
+    this.foto = musicaDTO.getFoto();
   }
 }

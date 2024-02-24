@@ -27,7 +27,7 @@ export class MusicasComponent {
         this.emErro('Erro ao carregar músicas.');
         return of([])
       }));
-    this.colunasMostradas = ['foto', 'nome', 'artista', 'generoMusical', 'duracao', 'data_lancamento'];
+    this.colunasMostradas = ['foto', 'nome', 'artista', 'generoMusical', 'duracao', 'dataLancamento'];
     }
 
     emErro(mensagemErro: string) {

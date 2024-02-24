@@ -8,13 +8,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class MusicaDTO {
+public class RespostaDTO {
 
-  private String nome;
-  private String artista;
-  private String generoMusical;
-  private String duracao;
-  private Date dataLancamento;
-  private byte[] foto;
+    private String nome;
+    private String artista;
+    private String generoMusical;
+    private String duracao;
+    private Date dataLancamento;
+    private String foto;
 
 }

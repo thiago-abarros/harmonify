@@ -5,5 +5,5 @@ export interface Musica {
   artista: string;
   generoMusical: string;
   duracao: string;
-  lancamento: string;
+  dataLancamento: string;
 }
