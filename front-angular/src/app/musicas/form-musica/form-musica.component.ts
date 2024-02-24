@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { MusicasService } from './../servicos/musicas.servico';
 
@@ -13,7 +14,8 @@ export class FormMusicaComponent {
   form: FormGroup;
   nomeArquivoSelecionado: string | null = null;
 
-  constructor(private formBuilder: FormBuilder, private service: MusicasService) {
+  constructor(private formBuilder: FormBuilder, private service: MusicasService,
+    private router: Router) {
     this.form = this.formBuilder.group({
       nome: [null],
       artista: [null],
@@ -26,11 +28,11 @@ export class FormMusicaComponent {
 
   onSalvar() {
     console.log(this.form.value)
-    this.service.salvarMusica(this.form.value).subscribe(result => console.log(result));
+    this.service.salvarMusica(this.form.value).subscribe(_r => this.router.navigate(['/musicas']));
   }
 
   onCancelar() {
-
+    this.router.navigate(['/musicas']);
   }
 
   onArquivoSelecionado(event: any) {

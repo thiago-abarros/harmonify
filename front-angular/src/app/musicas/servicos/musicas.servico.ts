@@ -17,7 +17,7 @@ export class MusicasService {
     return this.httpClient.get<Musica[]>(this.API)
       .pipe(
         first(),
-        delay(3000),
+        delay(2000),
         tap(musicas => console.log(musicas))
       );
   }
